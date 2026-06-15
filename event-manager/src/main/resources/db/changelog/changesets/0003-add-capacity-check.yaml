@@ -1,0 +1,7 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0003-add-capacity-check
+      author: Andrey
+      changes:
+        - sql:
+            sql: ALTER TABLE locations ADD CONSTRAINT chk_capacity_min_5 CHECK (capacity >= 5);
