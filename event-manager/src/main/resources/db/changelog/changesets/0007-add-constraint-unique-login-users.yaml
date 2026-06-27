@@ -1,0 +1,9 @@
+databaseChangeLog:
+  - changeSet:
+      id: 0007-add-constraint-unique-login-users
+      author: Andrey
+      changes:
+        - addUniqueConstraint:
+            tableName: users
+            columnNames: login
+            constraintName: add_unique_login

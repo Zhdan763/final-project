@@ -4,6 +4,8 @@ import jakarta.persistence.EntityNotFoundException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
+import org.springframework.http.converter.HttpMessageNotReadableException;
+import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -70,6 +72,18 @@ public class GlobalExceptionHandler {
                 LocalDateTime.now()
         );
         return ResponseEntity.status(500).body(errorDto);
+
+    }
+
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<ServerErrorDto> authenticationException(BadCredentialsException e) {
+        logger.error("Got authentication exception", e);
+        var errorDto = new ServerErrorDto(
+                "Необходима аутентификация",
+                e.getMessage(),
+                LocalDateTime.now()
+        );
+        return ResponseEntity.status(401).body(errorDto);
 
     }
 

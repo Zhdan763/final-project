@@ -5,3 +5,11 @@ databaseChangeLog:
       file: db/changelog/changesets/0002-create-table-location.yaml
   - include:
       file: db/changelog/changesets/0003-add-capacity-check.yaml
+  - include:
+      file: db/changelog/changesets/0004-create-table-users.yaml
+  - include:
+      file: db/changelog/changesets/0005-rename-column-name-users.yaml
+  - include:
+      file: db/changelog/changesets/0006-rename-column-passwordHash-users.yaml
+  - include:
+      file: db/changelog/changesets/0007-add-constraint-unique-login-users.yaml
