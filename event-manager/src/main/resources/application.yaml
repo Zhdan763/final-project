@@ -29,3 +29,8 @@ springdoc:
   swagger-ui:
     path: /swagger-ui/index.html
     url: /event-manager-openapi.yaml
+
+my-app:
+  jwt:
+    secret-key: "452C5159D61D1D61A28DFD2ACC891F798DDE69D16FA3F65FDE829C40BBF9D081"
+    expiration-time: 86400000
